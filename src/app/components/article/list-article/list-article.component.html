@@ -28,12 +28,13 @@
     <mat-header-cell *matHeaderCellDef> Cantidad </mat-header-cell>
     <mat-cell *matCellDef="let element">
       <div fxLayout="row" fxLayoutAlign="center center" >
-        <button mat-icon-button color="primary">
+        <button mat-icon-button color="primary"(click)='editar()'>
           <mat-icon aria-label="Example icon-button with a heart icon">edit</mat-icon>
         </button>
         <button mat-icon-button color="accent">
           <mat-icon aria-label="Example icon-button with a heart icon">delete</mat-icon>
         </button>
+
       </div>
     </mat-cell>
   </ng-container>
@@ -41,3 +42,6 @@
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
   <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 </mat-table>
+<button mat-fab color="accent" style="float:right; margin: 25px" (click)='openDialog()'>
+  <mat-icon >add</mat-icon>
+</button>

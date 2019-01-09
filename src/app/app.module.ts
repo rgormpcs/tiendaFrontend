@@ -25,6 +25,8 @@ import { ArticuloComponent } from './components/article/articulo/articulo.compon
 import { HttpClientModule } from '@angular/common/http';
 import {MatTableModule} from '@angular/material/table';
 import { AddArticleComponent } from './components/article/add-article/add-article.component';
+import {MatDialogModule} from '@angular/material/dialog';
+
 
 
 
@@ -62,7 +64,8 @@ import { AddArticleComponent } from './components/article/add-article/add-articl
     MatDividerModule,
     FlexLayoutModule,
     HttpClientModule,
-    MatTableModule
+    MatTableModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
