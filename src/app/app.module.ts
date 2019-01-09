@@ -24,6 +24,7 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import { ArticuloComponent } from './components/article/articulo/articulo.component';
 import { HttpClientModule } from '@angular/common/http';
 import {MatTableModule} from '@angular/material/table';
+import { AddArticleComponent } from './components/article/add-article/add-article.component';
 
 
 
@@ -44,7 +45,8 @@ import {MatTableModule} from '@angular/material/table';
     ItemComponent,
     StockComponent,
     PageNotFoundComponent,
-    ArticuloComponent
+    ArticuloComponent,
+    AddArticleComponent
   ],
   imports: [
     BrowserModule,

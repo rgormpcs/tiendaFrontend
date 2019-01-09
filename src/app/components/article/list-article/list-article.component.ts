@@ -26,7 +26,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./list-article.component.scss'],
 })
 export class ListArticleComponent implements OnInit {
-  displayedColumns: string[] = [ 'nombre', 'descripcion', 'precio', 'cantidad'];
+  displayedColumns: string[] = [ 'nombre', 'descripcion', 'precio', 'cantidad', 'acciones'];
   dataSource = new Array();
   
   constructor(private ArticuloService:ArticuloService) { }
