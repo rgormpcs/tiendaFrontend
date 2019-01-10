@@ -47,7 +47,7 @@
     </div>
   </div>
   <div mat-dialog-actions>
-    <button mat-button>Crear</button>
-    <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Cancel</button>
+    <button mat-button color="primary" [disabled]="articuloForm.invalid" (click)="guardar()">Crear</button>
+    <button mat-button color="primary">Cancel</button>
   </div>
 </form>

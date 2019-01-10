@@ -19,4 +19,7 @@ export class ArticuloService {
    listar():Observable<Articulo[]>{
     return this.http.get<Articulo[]>(this.url);
   }
+  guardar(articulo:Articulo):Observable<Articulo>{
+    return this.http.post<Articulo>(this.url,articulo)
+  }
 }

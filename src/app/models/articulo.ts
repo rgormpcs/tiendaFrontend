@@ -6,4 +6,5 @@ export  class Articulo{
     cantidad?:number;
     descuento?:number;
     url?:String;
+    categoria?:any;
 }
