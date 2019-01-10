@@ -22,4 +22,7 @@ export class ArticuloService {
   guardar(articulo:Articulo):Observable<Articulo>{
     return this.http.post<Articulo>(this.url,articulo)
   }
+  actualizar(articulo:Articulo):Observable<Articulo>{
+    return this.http.put<Articulo>(this.url,articulo)
+  }
 }

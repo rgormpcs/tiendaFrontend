@@ -28,7 +28,7 @@
     <mat-header-cell *matHeaderCellDef> Cantidad </mat-header-cell>
     <mat-cell *matCellDef="let element">
       <div fxLayout="row" fxLayoutAlign="center center" >
-        <button mat-icon-button color="primary"(click)='editar()'>
+        <button mat-icon-button color="primary"(click)='editar(element)'>
           <mat-icon aria-label="Example icon-button with a heart icon">edit</mat-icon>
         </button>
         <button mat-icon-button color="accent">

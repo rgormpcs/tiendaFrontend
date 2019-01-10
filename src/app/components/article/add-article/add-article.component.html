@@ -1,4 +1,5 @@
-<h1 mat-dialog-title>Nuevo Articulo</h1>
+<h1 mat-dialog-title *ngIf="!articulo.id">Nuevo Articulo</h1>
+<h1 mat-dialog-title *ngIf="articulo.id">Editar Articulo</h1>
 <form [formGroup]="articuloForm">
 
   <div mat-dialog-content>
@@ -47,7 +48,11 @@
     </div>
   </div>
   <div mat-dialog-actions>
-    <button mat-button color="primary" [disabled]="articuloForm.invalid" (click)="guardar()">Crear</button>
+    <button mat-button color="accent" [disabled]="articuloForm.invalid" (click)="guardar()">
+      <span *ngIf="!articulo.id" >Crear</span>
+      <span *ngIf="articulo.id"  >Editar</span>
+    </button>
+   
     <button mat-button color="primary">Cancel</button>
   </div>
 </form>

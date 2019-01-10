@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ArticuloService } from 'src/app/services/articulo.service';
 import { AddArticleComponent } from '../add-article/add-article.component';
 import { MatDialog } from '@angular/material';
+import { Articulo } from 'src/app/models/articulo';
 export interface PeriodicElement {
   name: string;
   position: number;
@@ -40,13 +41,24 @@ export class ListArticleComponent implements OnInit {
       this.dataSource = resp;
     })
   }
-  editar(): void {
+  editar(articulo:Articulo): void {
+    const dialogRef = this.dialog.open(AddArticleComponent, {
+      width: '650px',
+      data: {articulo: articulo}
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.ArticuloService.listar().subscribe(resp=>{
+        this.dataSource = resp;
+      });
+      //this.animal = result;
+    });
   }
   openDialog(): void {
     const dialogRef = this.dialog.open(AddArticleComponent, {
       width: '650px',
-      data: {name: ""}
+      data: {articulo:new Articulo()}
     });
 
     dialogRef.afterClosed().subscribe(result => {
