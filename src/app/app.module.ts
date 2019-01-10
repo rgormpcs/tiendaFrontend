@@ -4,9 +4,9 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatButtonModule ,MatIconModule} from '@angular/material';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatMenuModule} from '@angular/material/menu';
+import { MatButtonModule, MatIconModule, MatInputModule } from '@angular/material';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu';
 import { LoginComponent } from './components/acount/login/login.component';
 import { TsComponent } from './components/acount/ts/ts.component';
 import { RegisterComponent } from './components/acount/register/register.component';
@@ -18,14 +18,20 @@ import { HomeComponent } from './components/home/home.component';
 import { ItemComponent } from './components/shared/item/item.component';
 import { StockComponent } from './components/article/stock/stock.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-import {MatCardModule} from '@angular/material/card';
-import {MatDividerModule} from '@angular/material/divider';
+import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { ArticuloComponent } from './components/article/articulo/articulo.component';
 import { HttpClientModule } from '@angular/common/http';
-import {MatTableModule} from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
 import { AddArticleComponent } from './components/article/add-article/add-article.component';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
+import { ReactiveFormsModule } from '@angular/forms';
+import {MatSelectModule} from '@angular/material/select';
+
+
 
 
 
@@ -65,7 +71,14 @@ import {MatDialogModule} from '@angular/material/dialog';
     FlexLayoutModule,
     HttpClientModule,
     MatTableModule,
-    MatDialogModule
+    MatDialogModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatSelectModule
+  ],
+  entryComponents: [
+    AddArticleComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

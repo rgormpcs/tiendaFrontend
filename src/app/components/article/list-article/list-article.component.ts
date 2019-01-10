@@ -45,7 +45,7 @@ export class ListArticleComponent implements OnInit {
   }
   openDialog(): void {
     const dialogRef = this.dialog.open(AddArticleComponent, {
-      width: '250px',
+      width: '650px',
       data: {name: ""}
     });
 

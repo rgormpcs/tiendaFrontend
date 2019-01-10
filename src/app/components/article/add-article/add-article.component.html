@@ -1,8 +1,53 @@
-<h1 mat-dialog-title>nuevo Articulo</h1>
-<div mat-dialog-content>
-  <p>Dialogo</p>
-</div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>
-</div>
+<h1 mat-dialog-title>Nuevo Articulo</h1>
+<form [formGroup]="articuloForm">
+
+  <div mat-dialog-content>
+    <div class="example-container">
+      <mat-form-field>
+        <input matInput placeholder="Nombre del Articulo" formControlName="nombre" required>
+        <mat-error *ngIf="articuloForm.get('nombre').hasError('required')">Nombre es requerido</mat-error>
+        <mat-error *ngIf="articuloForm.get('nombre').hasError('minlength')">Nombre es requerido</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Descripcion del Articulo" formControlName="descripcion">
+
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="URL" formControlName="url" required>
+        <mat-error *ngIf="articuloForm.get('url').hasError('required')">Nombre es requerido</mat-error>
+        <mat-error *ngIf="articuloForm.get('url').hasError('minlength')">Nombre es requerido</mat-error>
+      </mat-form-field>
+      <div fxLayout="row" fxLayoutAlign="space-between center">
+        <mat-form-field fxFlex='45'>
+          <input matInput placeholder="precio" formControlName="precio" required>
+          <mat-error *ngIf="articuloForm.get('precio').hasError('required')">Nombre es requerido</mat-error>
+          <mat-error *ngIf="articuloForm.get('precio').hasError('minlength')">Nombre es requerido</mat-error>
+        </mat-form-field>
+        <mat-form-field fxFlex='45'>
+          <input matInput placeholder="cantidad" formControlName="cantidad" required>
+          <mat-error *ngIf="articuloForm.get('cantidad').hasError('required')">Nombre es requerido</mat-error>
+          <mat-error *ngIf="articuloForm.get('cantidad').hasError('minlength')">Nombre es requerido</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div fxLayout="row" fxLayoutAlign="space-between center">
+          <mat-form-field fxFlex='45'>
+              <mat-select placeholder="Categoria" formControlName="categoria">
+                  <mat-option *ngFor="let categoria of categorias" [value]="categoria.id">
+                    {{categoria.nombre}}
+                  </mat-option>
+                </mat-select>
+          </mat-form-field>
+          <mat-form-field fxFlex='45'>
+            <input matInput placeholder="descuento" formControlName="descuento">
+          </mat-form-field>
+        </div>
+
+      
+    </div>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button>Crear</button>
+    <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Cancel</button>
+  </div>
+</form>
