@@ -51,6 +51,9 @@ export class ListArticleComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
+      this.ArticuloService.listar().subscribe(resp=>{
+        this.dataSource = resp;
+      });
       //this.animal = result;
     });
   }
