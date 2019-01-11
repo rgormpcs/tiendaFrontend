@@ -27,6 +27,7 @@ import { MatTableModule } from '@angular/material/table';
 import { AddArticleComponent } from './components/article/add-article/add-article.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatSelectModule} from '@angular/material/select';
@@ -75,7 +76,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatFormFieldModule,
     ReactiveFormsModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    MatSnackBarModule
   ],
   entryComponents: [
     AddArticleComponent

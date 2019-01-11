@@ -25,4 +25,7 @@ export class ArticuloService {
   actualizar(articulo:Articulo):Observable<Articulo>{
     return this.http.put<Articulo>(this.url,articulo)
   }
+  eliminar(id:number):Observable<any>{
+    return this.http.delete<any>(`${this.url}/${id}`);
+  }
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ArticuloService } from 'src/app/services/articulo.service';
 import { AddArticleComponent } from '../add-article/add-article.component';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatSnackBar } from '@angular/material';
 import { Articulo } from 'src/app/models/articulo';
 export interface PeriodicElement {
   name: string;
@@ -32,7 +32,7 @@ export class ListArticleComponent implements OnInit {
   displayedColumns: string[] = ['nombre', 'descripcion', 'precio', 'cantidad', 'acciones'];
   dataSource = new Array();
 
-  constructor(private ArticuloService: ArticuloService, public dialog: MatDialog) {
+  constructor(private ArticuloService: ArticuloService, public dialog: MatDialog,private snackBar: MatSnackBar) {
     
    }
 
@@ -48,12 +48,14 @@ export class ListArticleComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+     if(result){
+      this.openSnackBar("articulo editado exitosament", "OK");
       this.ArticuloService.listar().subscribe(resp=>{
         this.dataSource = resp;
       });
-      //this.animal = result;
+     }
     });
+   
   }
   openDialog(): void {
     const dialogRef = this.dialog.open(AddArticleComponent, {
@@ -61,12 +63,23 @@ export class ListArticleComponent implements OnInit {
       data: {articulo:new Articulo()}
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+  
+  }
+  elimniar(articulo:Articulo):void{
+    
+    console.log("mesaje")
+    this.ArticuloService.eliminar(articulo.id).subscribe(resp =>{
+      this.openSnackBar("Articulo eliminado exitosamente","OK");
       this.ArticuloService.listar().subscribe(resp=>{
-        this.dataSource = resp;
-      });
-      //this.animal = result;
+        this.dataSource=resp;
+      })
+      console.log("Se elimino el articulo:"+articulo.id);
+    })
+  }
+
+  openSnackBar(message: string, accion: string) {
+    this.snackBar.open(message, accion,{
+      verticalPosition:'top',duration:6000
     });
   }
 }

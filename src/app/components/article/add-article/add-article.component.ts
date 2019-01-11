@@ -100,13 +100,14 @@ export class AddArticleComponent implements OnInit, AfterContentInit {
         this.dialogRef.close(resp);
       }, error => {
         console.log(error);
+        this.dialogRef.close(error);
       });
 
     }
 
+  }
 
-
-
+  borrar(){
 
   }
 }
